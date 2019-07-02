@@ -324,7 +324,8 @@ def post_response(message, response_list, *args):
     #if not message.channel.is_private:
     response = "<@" + str(message.author.id) + "> " + response
     logger.info("sending response: '%s' to message: %s", response, message.content)
-    asyncio.get_event_loop().create_task(client.send_message(message.channel, response))
+    channel = message.channel
+    asyncio.get_event_loop().create_task(channel.send(response))
 
 
 async def react_to_message(message, level):
