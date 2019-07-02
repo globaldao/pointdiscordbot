@@ -242,7 +242,7 @@ async def handle_message(message):
                 elif target_user_id == os.environ.get('BOT_ID'):
                     post_response(message, feat.response_templates["cant_tip_bot"])
                 else:
-                    target_user = await client.get_user_info(target_user_id)
+                    target_user = await client.fetch_user(target_user_id)
                     wallet.make_transaction_to_user(message.author.id, amount, target_user.id, target_user.name)
                     try:
                         asyncio.get_event_loop().create_task(
