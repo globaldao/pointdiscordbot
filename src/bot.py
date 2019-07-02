@@ -98,8 +98,9 @@ def setup_bot():
                                   "\n" +
                                   ":small_blue_diamond: !withdraw \n" +
                                   ":small_blue_diamond: needs: address \n" +
-                                  "Withdraw all of your coins to your wallet. You have to supply an " +
-                                  "address for this. \n" +
+                                  ":small_blue_diamond: needs: amount \n" +
+                                  "Withdraw the amount of coins especified to your Point wallet. You have to supply an " +
+                                  "address and amount for this. \n" +
                                   "\n" +
                                   ":small_blue_diamond: !top !rank !leaderboard \n" +
                                   "Show who has tipped the most. \n"
