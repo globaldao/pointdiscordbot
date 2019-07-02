@@ -361,7 +361,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if AT_BOT in message.content or (message.channel.is_private and message.author.id != client.user.id):
+    if AT_BOT in message.content or (message.channel.isinstance(channel, discord.abc.GuildChannel)and message.author.id != client.user.id):
         try:
             if not message.channel.is_private:
                 message.content = message.content.replace(AT_BOT, '', 1)
