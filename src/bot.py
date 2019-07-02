@@ -364,7 +364,7 @@ async def on_message(message):
     if AT_BOT in message.content or (message.author.id != client.user.id):
         try:
             #if not message.channel.is_private:
-            print message
+            print(message)
             message.content = message.content.replace(AT_BOT, '', 1)
             await client.send_typing(message.channel)
             await handle_message(message)
