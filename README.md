@@ -1,6 +1,6 @@
-# ZTipBot
+# PointTipBot
 
-ZTipBot is a Discord tip bot for Zcoin. This bot was developed to allow our community in Discord to tip each other easily.
+PointTipBot is a Discord tip bot for Zcoin. This bot was developed to allow our community in Discord to tip each other easily.
 
 ## Usage
 

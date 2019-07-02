@@ -69,7 +69,7 @@ def setup_bot():
                               command_keywords=["!help", "!man"],
                               response_templates=
                               {"success": [
-                                  "ZTipBot v%s - Zcoin's tip bot for Discord \n" +
+                                  "PointTipBot v%s - Zcoin's tip bot for Discord \n" +
                                   "Developed by <@375265605080842241> - feel free to give me feedback \n" +
                                   "\n" +
                                   ":small_orange_diamond: You can tag me in a channel or send me a direct message"

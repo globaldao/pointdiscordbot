@@ -20,7 +20,7 @@ logger = logging.getLogger("bot-wallet")
 
 
 def connect():
-    return AuthServiceProxy("http://%s:%s@127.0.0.1:8332" % (rpc_user, rpc_password))
+    return AuthServiceProxy("http://%s:%s@127.0.0.1:52110" % (rpc_user, rpc_password))
 
 
 def create_or_fetch_user(user_id, user_name):
@@ -59,7 +59,7 @@ def make_transaction_to_address(user, amount, address):
     rpc_connection = connect()
     result = rpc_connection.batch_(commands)
     if result[0]:
-        commands = [["sendtoaddress", address, round(amount - txfee, 3), "ztipbot withdraw"]]
+        commands = [["sendtoaddress", address, round(amount - txfee, 3), "PointTipBot withdraw"]]
         result = rpc_connection.batch_(commands)
         txid = result[0]
         logger.info('creating withdraw transaction (user: %s, amount: %.3f, address: %s)', user.user_id,
