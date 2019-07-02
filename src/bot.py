@@ -97,8 +97,7 @@ def setup_bot():
                                   "If the operation is successful, the other users is informed of your action. \n" +
                                   "\n" +
                                   ":small_blue_diamond: !withdraw \n" +
-                                  ":small_blue_diamond: needs: address \n" +
-                                  ":small_blue_diamond: needs: amount \n" +
+                                  ":small_blue_diamond: needs: address, amount \n" +
                                   "Withdraw the amount of coins especified to your Point wallet. You have to supply an " +
                                   "address and amount for this. \n" +
                                   "\n" +
