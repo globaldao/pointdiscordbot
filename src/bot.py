@@ -44,22 +44,22 @@ general_responses = {
         ],
     "new_deposit_unconfirmed":
         [
-            "I received a new deposit (%.3f XZC) :ok_hand: Waiting for 1 more confirmation" +
+            "I received a new deposit (%.3f POINT) :ok_hand: Waiting for 1 more confirmation" +
             " before you can start using the coins. I will let you know when your funds are confirmed.",
-            "I got the %.3f XZC you sent me :ok_hand: Just waiting for a confirmation. " +
+            "I got the %.3f POINT you sent me :ok_hand: Just waiting for a confirmation. " +
             "I'll send you a message when that happens.",
-            "Wow ! I got %.3f XZC from you. Wait a moment so I receive one confirmation. " +
+            "Wow ! I got %.3f POINT from you. Wait a moment so I receive one confirmation. " +
             "I'll tell you when your coins are confirmed."
         ],
     "new_deposit_confirmed":
         [
-            "Your deposit (%.3f XZC) is added and confirmed ! Coins are now usable with your wallet.",
-            "Deposit (%.3f XZC) is now confirmed :sunglasses: ! Tip happily."
+            "Your deposit (%.3f POINT) is added and confirmed ! Coins are now usable with your wallet.",
+            "Deposit (%.3f POINT) is now confirmed :sunglasses: ! Tip happily."
         ],
     "deposit_confirmed":
         [
-            "Your deposit (%.3f XZC) is now confirmed ! :sunglasses:",
-            "Confirmed ! %.3f XZC was added to your account. :muscle:"
+            "Your deposit (%.3f POINT) is now confirmed ! :sunglasses:",
+            "Confirmed ! %.3f POINT was added to your account. :muscle:"
         ]
 }
 
@@ -75,7 +75,7 @@ def setup_bot():
                                   ":small_orange_diamond: You can tag me in a channel or send me a direct message"
                                   " to engage with me. \n\n"
                                   ":small_orange_diamond: You can phrase your commands anyway you like, for example"
-                                  " '!tip 2 xzc to @daniel' and 'i command you to !tip @daniel an amount of 2' are"
+                                  " '!tip 2 POINT to @daniel' and 'i command you to !tip @daniel an amount of 2' are"
                                   " equal. I'll let you know if I can't find what I'm looking for. \n\n"
                                   "Supported commands are:\n " +
                                   "\n" +
@@ -109,9 +109,9 @@ def setup_bot():
                                  command_keywords=["!balance", "!wallet"],
                                  response_templates=
                                  {"success": [
-                                     "Balance: %.3f XZC",
-                                     "You have %.3f XZC. Spend wisely ! :wink: ",
-                                     "You've got %.3f XZC."
+                                     "Balance: %.3f POINT",
+                                     "You have %.3f POINT. Spend wisely ! :wink: ",
+                                     "You've got %.3f POINT."
                                  ]})
 
     deposit_feature = BotFeature(command="DEPOSIT",
@@ -149,7 +149,7 @@ def setup_bot():
                                  "Something went wrong with the tip. I wrote to logs. :thermometer_face: "
                              ], "tip_received": [
                                  "You were tipped %.3f by <@%s> ! Your account was funded. :muscle: ",
-                                 "%.3f XZC was tipped to you by <@%s> ! You can tip other users or withdraw your coins."
+                                 "%.3f POINT was tipped to you by <@%s> ! You can tip other users or withdraw your coins."
                              ], "cant_tip_yourself": [
                                  ":thinking: :thinking: :thinking: You can't tip yourself !"
                              ], "cant_tip_bot": [
@@ -170,9 +170,9 @@ def setup_bot():
                                   ], "error": [
                                       "Something went wrong ! :thermometer_face: "
                                   ], "threshold": [
-                                      "You do not have a minimum of 0.01 XZC !",
-                                      "Minimum withdraw amount is 0.01 XZC !",
-                                      "Uh I'm sorry :sweat: ... Minimum withdrawal amount is 0.01 XZC"
+                                      "You do not have a minimum of 0.01 POINT !",
+                                      "Minimum withdraw amount is 0.01 POINT !",
+                                      "Uh I'm sorry :sweat: ... Minimum withdrawal amount is 0.01 POINT"
                                   ]})
 
     top_feature = BotFeature(command="TOP",
@@ -275,7 +275,7 @@ async def handle_message(message):
             else:
                 response = random.choice(feat.response_templates["header"]) + "\n"
                 for top_user in top_users:
-                    response += '\n %s %.3f XZC tipped by %s' % (util.get_numerical_emoji(top_user['index']),
+                    response += '\n %s %.3f POINT tipped by %s' % (util.get_numerical_emoji(top_user['index']),
                                                                  top_user['amount'], top_user['name'])
                     if top_user['index'] == 1:
                         response += ' :clap: :clap: '
