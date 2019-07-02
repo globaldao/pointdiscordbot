@@ -321,8 +321,8 @@ def find_user_id(input_text):
 def post_response(message, response_list, *args):
     print(message)
     response = random.choice(response_list) % tuple(args)
-        if not message.channel.is_private:
-            response = "<@" + message.author.id + "> " + response
+    #if not message.channel.is_private:
+    response = "<@" + message.author.id + "> " + response
     logger.info("sending response: '%s' to message: %s", response, message.content)
     asyncio.get_event_loop().create_task(client.send_message(message.channel, response))
 
