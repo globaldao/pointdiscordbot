@@ -54,7 +54,7 @@ def get_balance(user_id):
 
 
 def make_transaction_to_address(user, amount, address):
-    txfee = 0.0
+    txfee = 0.0001
     commands = [["settxfee", txfee]]
     rpc_connection = connect()
     result = rpc_connection.batch_(commands)
