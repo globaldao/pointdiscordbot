@@ -343,7 +343,7 @@ async def post_dm(user_id, text_list, *args):
     logger.info("sending dm: '%s' to user: %s", text, user_id)
     print("sending dm: '%s' to user: %s", text, user_id)
     try:
-        await client.send_message(await client.get_user_info(user_id), text)
+        await client.send_message(await client.fetch_user(user_id), text)
     except Exception as ex:
         logger.exception(ex)
 
