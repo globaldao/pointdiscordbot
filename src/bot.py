@@ -341,6 +341,7 @@ async def react_to_message(message, level):
 async def post_dm(user_id, text_list, *args):
     text = random.choice(text_list) % tuple(args)
     logger.info("sending dm: '%s' to user: %s", text, user_id)
+    print(text)
     await client.send_message(await client.get_user_info(user_id), text)
 
 
@@ -349,8 +350,6 @@ async def check_for_deposit():
         await asyncio.sleep(DEPOSIT_CHECK_JOB)
         results = wallet.parse_incoming_transactions()
         for result in results:
-            print(result)
-            print(general_responses[result[1]])
             await post_dm(result[0], general_responses[result[1]], result[2])
         asyncio.get_event_loop().create_task(check_for_deposit())
     except Exception as ex:
