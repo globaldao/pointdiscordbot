@@ -350,6 +350,7 @@ async def check_for_deposit():
         results = wallet.parse_incoming_transactions()
         for result in results:
             print(result)
+            print(general_responses[result[1]])
             await post_dm(result[0], general_responses[result[1]], result[2])
         asyncio.get_event_loop().create_task(check_for_deposit())
     except Exception as ex:
