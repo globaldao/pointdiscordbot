@@ -23,7 +23,7 @@ DEPOSIT_CHECK_JOB = 60.0  # seconds
 
 CMD_HELP = "!help"
 CMD_BALANCE = "!balance"
-CMD_DEPOSIT = "!deposit"
+CMD_DEPOSIT = "!getaddress"
 
 logger.info("started.")
 client = discord.Client()
@@ -86,7 +86,7 @@ def setup_bot():
                                   "Tells you how much coins you've got. There are two ways your balance increases: "
                                   "(1) receiving tips and (2) depositing coins. \n" +
                                   "\n" +
-                                  ":small_blue_diamond: !deposit \n" +
+                                  ":small_blue_diamond: !getaddress \n" +
                                   "Gives you an address (with QR code) to transfer your coins, so you can start"
                                   " tipping others. You will receive a message when your transaction is received"
                                   " and confirmed. \n" +
@@ -115,7 +115,7 @@ def setup_bot():
                                  ]})
 
     deposit_feature = BotFeature(command="DEPOSIT",
-                                 command_keywords=["!deposit"],
+                                 command_keywords=["!getaddress"],
                                  response_templates=
                                  {"success": [
                                      "Send your coins to %s please. I'll send you a message when I " +
