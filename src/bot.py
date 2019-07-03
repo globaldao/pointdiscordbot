@@ -341,8 +341,12 @@ async def react_to_message(message, level):
 async def post_dm(user_id, text_list, *args):
     text = random.choice(text_list) % tuple(args)
     logger.info("sending dm: '%s' to user: %s", text, user_id)
-    print(text)
-    await client.send_message(await client.get_user_info(user_id), text)
+    print("sending dm: '%s' to user: %s", text, user_id)
+    try:
+        await client.send_message(await client.get_user_info(user_id), text)
+    except Exception as ex:
+        logger.exception(ex)
+
 
 
 async def check_for_deposit():
