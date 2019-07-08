@@ -223,7 +223,7 @@ async def handle_message(message):
                 user = wallet.create_or_fetch_user(message.author.id, message.author.name)
                 amount = find_amount(message.content)
                 balance = user.balance
-                if balance < 0.002:
+                if (balance-amount) < 0.002:
                     post_response(message, feat.response_templates["threshold"])
                 else:
                     wallet.make_transaction_to_address(user, amount, address)
